@@ -1,5 +1,7 @@
 var request = require('request'),
 	ScraperPromise = require('./ScraperPromise');
+var iconv = require('iconv-lite')
+
 
 /**
  * An abstract scraper, this class should not be used directly as a
@@ -92,8 +94,9 @@ AbstractScraper.prototype = {
 			} else {
 				that.response = response;
 				that.statusCode = response.statusCode;
-				that.body = body;
 				that.url = response.request.href;
+				if(options.encoding)
+					that.body = iconv.decode(body, options.encoding);
 				that.loadBody(function(err) {
 					callback(err);
 				});
