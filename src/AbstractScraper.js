@@ -1,6 +1,6 @@
 var request = require('request'),
 	ScraperPromise = require('./ScraperPromise');
-var iconv = require('iconv-lite')
+var iconv = require('iconv-lite');
 
 
 /**
