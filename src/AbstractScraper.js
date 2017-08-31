@@ -95,8 +95,8 @@ AbstractScraper.prototype = {
 				that.response = response;
 				that.statusCode = response.statusCode;
 				that.url = response.request.href;
-				if(options.encoding)
-					that.body = iconv.decode(body, options.encoding);
+				if(options.body_encoding)
+					that.body = iconv.decode(body, options.body_encoding);
 				that.loadBody(function(err) {
 					callback(err);
 				});
